@@ -8,45 +8,6 @@ import { CloudinaryStorage } from "multer-storage-cloudinary";
 
 const productsRouter = express.Router();
 
-// const cloudinaryUploader = multer({
-//   storage: new CloudinaryStorage({
-//     cloudinary,
-//     params: {
-//       folder: "phone/products",
-//     },
-//   }),
-// }).single("image");
-// productsRouter.post(
-//   "/:productId/upload",
-//   multer().single("image"),
-//   cloudinaryUploader,
-//   async (req, res, next) => {
-//     try {
-//       console.log(req.file);
-//       const url = req.file.path;
-//       const products = await productModel();
-//       const index = products.findIndex(
-//         (product) => product._id === req.params.id
-//       );
-//       //   updating the blog cover
-//       if (index !== -1) {
-//         const oldProduct = products[index];
-//         // const coverUpdate = { ...oldBlog, cover: url }
-//         const updateProduct = {
-//           ...oldProduct,
-//           imageUrl: url,
-//           updatedAt: new Date(),
-//         };
-//         products[index] = updateProduct;
-//         await writeProduct(products);
-//       }
-//       res.send("product image updated");
-//     } catch (error) {
-//       next(error);
-//     }
-//   }
-// );
-
 productsRouter.post("/", async (req, res, next) => {
   try {
     const product = new productModel(req.body);
